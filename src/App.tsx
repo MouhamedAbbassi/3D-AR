@@ -1,20 +1,26 @@
+import React, { useState } from "react";
 import "./index.css";
 import ModelViewer from "./components/ModelViewer";
-import ARViewer from "./components/ARViewer";
-import { useState } from "react";
+import QRCodeGenerator from "./components/QRCodeGenerator";
 
-function App() {
-  const [isAR, setIsAR] = useState(false);
+const App: React.FC = () => {
+  const [arUrl, setArUrl] = useState<string | null>(null);
+
+  const handleARView = () => {
+    const url = `${window.location.origin}/ar`;
+    console.log("Generated AR URL:", url);
+    setArUrl(url);
+  };
 
   return (
     <div className="App">
-      <h1>AR / 3D Model Viewer</h1>
-      <button onClick={() => setIsAR(!isAR)} style={{ marginBottom: "20px" }}>
-        {isAR ? "Exit AR" : "Enter AR"}
-      </button>
-      {isAR ? <ARViewer /> : <ModelViewer />}
+      <h1>3D Model Viewer</h1>
+      <button onClick={handleARView}>Generate AR QR Code</button>
+
+      {arUrl && <QRCodeGenerator url={arUrl} />}
+      <ModelViewer />
     </div>
   );
-}
+};
 
 export default App;

@@ -13,8 +13,12 @@
     "@react-three/drei": "^10.0.8",
     "@react-three/fiber": "^9.1.2",
     "@react-three/xr": "^6.6.17",
+    "qrcode": "^1.5.4",
+    "qrcode.react": "^4.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-qr-code": "^2.0.15",
+    "react-router-dom": "^7.6.0",
     "three": "^0.176.0"
   },
   "devDependencies": {
